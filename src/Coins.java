@@ -8,7 +8,12 @@ public class Coins {
         coinsAmount = 12;
     }
 
+public int getCoinsAmount() {
+        return coinsAmount;
+}
+
     public void removeCoins(int taken) {
         coinsAmount = coinsAmount - taken;
+
     }
 }

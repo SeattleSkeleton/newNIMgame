@@ -5,23 +5,25 @@ public class MainNIM {
     Human player;
     Coins coins;
     MasterNIM computer;
+
     public static void main(String[] args) {
 
         String input;
 
         do {
-            Human player = new Human();
+            Human player = new Player();
             MasterNIM computer = new MasterNIM();
             Coins coins = new Coins();
 
-            MainNIM game = new MainNIM(player, getRequest(), coins);
+            MainNIM game = new MainNIM();
 
             game.play();
 
             input = JOptionPane.showInputDialog("Play again?");
 
         }
-        while (input.equalsIgnoreCase("y")); {
+        while (input.equalsIgnoreCase("y"));
+        {
 
         }
 
@@ -35,7 +37,7 @@ public class MainNIM {
 
         if (input2.equalsIgnoreCase("H")) {
 
-            playerRequest = new Human();
+            playerRequest = new Player();
 
         } else if (input2.equalsIgnoreCase("C")) {
 
@@ -64,10 +66,61 @@ public class MainNIM {
         }
 
 
-
     }
 
     public void play() {
 
+        int amount;
+
+        //keep the game going... (see 'while' condition at bottom)
+        do {
+            //prints remaining marbles that are in pile
+            System.out.println("Number of marble(s) remaining in pile: "
+                    + coins.coinsAmount,
+            //player 1 makes a move and removes amount from pile
+            amount = player.move(coins.coinsAmount),
+
+            coins.removeCoins(amount),
+            //prints how many marbles player 1 took from pile
+
+                    System.out.println("Player " + player.getName() + " took " + amount
+                    + " marble(s) from the pile.\n")
+
+            //if after player 1's turn, there are no remaining marbles
+            //in pile, print that player 2 wins -- otherwise, it is
+            //player 2's turn: the same process repeats from here
+            if (coins.coinsAmount == 0) {
+
+                System.out.println("Player " + player.getName() + " wins "
+                        + "the game!\n\n");
+
+                break;
+
+            } else {
+
+                System.out.println("Number of coins remaining in pile: "
+                        + coins.coinsAmount;
+
+                amount = player.move(coins.coinsAmount);
+
+                coins.removeCoins(amount);
+
+                System.out.println("Player " + player.getName() + " took " + amount
+                        + " marble(s) from the pile.\n");
+
+                if (coins.coinsAmount == 0) {
+
+                    System.out.println("Player " + player.getName() + " wins "
+                            + "the game!\n\n");
+
+                    break;
+
+                }
+
+
+            }
+        }
+
+        ;
     }
 }

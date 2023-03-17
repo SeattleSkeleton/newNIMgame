@@ -42,37 +42,33 @@ public class MasterNIM implements Human {
 
 
                 //tells test file how many marbles to take away from pile
-                return coinTake;
+
 
             }
-            /**
-             * Smart Computer will play first if it is passed as the first player to the
-             * Nim Constructor
-             *
-             * @return a value of true to specify that the A.I. wants to play first;
-             * this is only applicable when A.I. play against each other -- yes, they
-             * can play against each other in this version of the game :)
-             */
 
-            @Override
-            public boolean wantsFirstPlay() {
 
-                return playerRequest;      //returns if players wants first play
 
-            }
-            /**
-             * Gets the name of the Smart Computer
-             *
-             * @return name of the Smart A.I.
-             */
-            @Override
 
-            public String getName() {
-
-                return name;   //returns name of player
-
-            }
 
         }
+        return coinTake;
+    }
+
+
+
+    @Override
+    public boolean wantsFirstPlay() {
+
+        return playerRequest;      //returns if players wants first play
+
+    }
+
+
+    @Override
+
+    public String getName() {
+
+        return name;   //returns name of player
+
     }
 }
