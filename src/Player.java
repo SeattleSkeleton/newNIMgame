@@ -1,11 +1,6 @@
 import javax.swing.JOptionPane;
 
-/**
- * A player that is controlled by the user in the game of Nim (can have multiple
- * human players)
- *
- * @author Jake
- */
+
 public class Player implements Human {
 
     String name;                //name of player
